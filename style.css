@@ -1,0 +1,200 @@
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a,
+span,
+img,
+button,
+input,
+svg {
+  display: block;
+}
+input {
+  width: 100%;
+}
+img {
+  height: auto;
+}
+input,
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+}
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+address {
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/dmsans/v11/rP2Hp2ywxg089UriOZQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/dmsans/v11/rP2Cp2ywxg089UriASitOB8.ttf) format('truetype');
+}
+html {
+  font-family: 'DM Sans', sans-serif;
+  scroll-behavior: smooth;
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+}
+body {
+  line-height: 1.5;
+  background-color: hsl(27, 66%, 92%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  width: 100%;
+  max-width: 385px;
+  margin-inline: 1rem;
+}
+.balance-container {
+  padding: 1.5rem;
+  background-color: hsl(10, 79%, 65%);
+  display: flex;
+  justify-content: space-between;
+  border-radius: 20px;
+  margin-block-end: 1rem;
+}
+.balance-container_details {
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+.balance-container_details p:last-child {
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.balance-container .logo {
+  max-width: 100%;
+}
+.balance-container .logo:hover {
+  animation: rotate 1.2s ease forwards;
+}
+.chart-container {
+  padding: 1.5rem;
+  background-color: hsl(33, 100%, 98%);
+  border-radius: 20px;
+}
+.chart-container h1 {
+  color: hsl(25, 47%, 15%);
+  font-size: clamp(1.5rem, 5.3vw, 1.6875rem);
+  font-weight: 700;
+  margin-block-end: 3.125rem;
+}
+.chart-container .bars-container {
+  height: 154px;
+  display: flex;
+  justify-content: space-between;
+}
+.chart-container .bar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+.chart-container .bar-container > div {
+  height: 100%;
+  display: flex;
+  align-items: end;
+}
+.chart-container .bar-container .bar {
+  width: clamp(26px, 8.6vw, 37px);
+  background-color: hsl(10, 79%, 65%);
+  border-radius: 5px;
+  position: relative;
+}
+.chart-container .bar-container .bar:before {
+  content: attr(data-stat);
+  position: absolute;
+  top: -2.6rem;
+  left: 50%;
+  transform: translateX(-50%) scale(var(--scale, 0));
+  background-color: hsl(25, 47%, 15%);
+  padding: clamp(0.4375rem, 1.9vw, 0.5625rem);
+  border-radius: 5px;
+  font-size: clamp(0.5625rem, 3.2vw, 0.6875rem);
+  font-weight: 700;
+  color: hsl(33, 100%, 98%);
+  transition: 0.3s ease;
+}
+.chart-container .bar-container .bar:hover {
+  background-color: #FF9B86;
+}
+.chart-container .bar-container .bar:hover:before {
+  --scale: 1;
+}
+.chart-container .bar-container .bar.max {
+  background-color: hsl(186, 34%, 60%);
+}
+.chart-container .bar-container .bar.max:hover {
+  background-color: #B4E0E5;
+}
+.chart-container .bar-container .label {
+  font-size: 0.8rem;
+  color: hsl(25, 47%, 15%);
+  text-align: center;
+}
+.chart-container_separator {
+  height: 2px;
+  background-color: hsl(27, 66%, 92%);
+  margin-block: 1.4rem 1.8rem;
+}
+.chart-container_details {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.chart-container_details_current {
+  color: hsl(28, 10%, 53%);
+  font-size: 0.875rem;
+}
+.chart-container_details_current p:last-child {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: hsl(25, 47%, 15%);
+}
+.chart-container_details_last {
+  color: hsl(28, 10%, 53%);
+  font-size: 0.875rem;
+}
+.chart-container_details_last p:first-child {
+  font-size: 1rem;
+  text-align: right;
+  font-weight: 700;
+  color: hsl(25, 47%, 15%);
+}
